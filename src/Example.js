@@ -13,14 +13,17 @@ import {
 } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Works", href: "#" },
-  { name: "About Us", href: "#works" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Works", href: "works" },
+  { name: "About Us", href: "about" },
+  { name: "Contact Us", href: "contact" },
 ];
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  function handleScroll(href) {
+    document.getElementById(href)?.scrollIntoView();
+  }
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">
@@ -46,13 +49,13 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <p
                 key={item.name}
-                href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer"
+                onClick={()=>handleScroll(item.href)}
               >
                 {item.name}
-              </a>
+              </p>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -89,13 +92,13 @@ export default function Example() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                      <p
                       key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="text-sm font-semibold leading-6 text-gray-900 cursor-pointer"
+                      onClick={() => handleScroll(item.href)}
                     >
                       {item.name}
-                    </a>
+                    </p>
                   ))}
                 </div>
                 <div className="py-6">
@@ -180,6 +183,7 @@ export default function Example() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#works"
+                onClick={() => handleScroll('works')}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Works<span aria-hidden="true">→</span>
