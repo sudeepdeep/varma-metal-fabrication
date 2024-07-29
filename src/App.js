@@ -1,3 +1,4 @@
+import About from "./About";
 import "./App.css";
 import Example from "./Example";
 import Footer from "./Footer";
@@ -8,6 +9,7 @@ function App() {
     <div className="App font-poppins">
       <Example />
       <Products id="works" />
+      <About id="about" />
       <Footer id="contact" />
     </div>
   );
