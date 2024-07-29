@@ -19,7 +19,7 @@ const stats = [
 
 export default function Footer() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 mt-7">
+    <div id="contact" className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 mt-7">
       <img
         alt=""
         src={footer}
